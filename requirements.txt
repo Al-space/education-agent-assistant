@@ -1,0 +1,39 @@
+
+# ---------- Web 服务与界面 ----------
+fastapi>=0.110,<1.0
+uvicorn[standard]>=0.29
+gradio>=4.44,<6.0
+
+# ---------- Agent 与 RAG ----------
+langchain>=0.2,<0.4
+langchain-community>=0.2,<0.4
+langchain-openai>=0.1
+langchain-text-splitters>=0.2
+faiss-cpu>=1.8
+rank-bm25>=0.2.2
+jieba>=0.42.1
+
+# ---------- 模型调用 ----------
+openai>=1.30
+
+# ---------- 数据持久化与配置 ----------
+sqlalchemy>=2.0
+pydantic-settings>=2.2
+python-dotenv>=1.0
+
+# ---------- 文档解析 ----------
+pymupdf>=1.24
+pypdf>=4.2
+python-docx>=1.1
+pandas>=2.2
+
+# ---------- 绘图与可视化 ----------
+matplotlib>=3.8
+
+# ---------- 网络请求 ----------
+httpx>=0.27
+requests>=2.32
+
+# ---------- PDF 加密支持 ----------
+cryptography>=42.0
+

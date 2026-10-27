@@ -146,7 +146,7 @@ data/indexes/{kb_id}/
 
 ## 5. 模块设计
 
-### 5.1 [loader.py](../app/rag/loader.py)
+### 5.1 [loader.py](../app/rag/document_loader.py)
 
 ```python
 def load_document(file_path: Path, doc_id: str, extra_meta: dict) -> list[Document]
@@ -173,7 +173,7 @@ def load_document(file_path: Path, doc_id: str, extra_meta: dict) -> list[Docume
 
 验收：PDF、DOCX、MD 各解析一份，页数、字符数正确，前 3 页文本连贯。
 
-### 5.2 [splitter.py](../app/rag/splitter.py)
+### 5.2 [splitter.py](../app/rag/text_splitter.py)
 
 ```python
 def split_documents(docs: list[Document], chunk_size: int = 600,
@@ -213,7 +213,7 @@ def embed_query(text: str) -> list[float]
 - 返回向量维度必须与 `manifest.dimension` 一致。
 - 构建与查询必须使用同一模型，禁止混用。
 
-### 5.4 [indexer.py](../app/rag/indexer.py)
+### 5.4 [indexer.py](../app/rag/hybrid_retriever.py)
 
 ```python
 def build_index(kb_id: str, chunks: list[Document]) -> BuildResult
@@ -236,7 +236,7 @@ BM25：
 
 验收：重新 `load_index` 后 `ntotal == chunk_count`；manifest 字段完整；中断构建不破坏旧索引。
 
-### 5.5 [retriever.py](../app/rag/retriever.py)
+### 5.5 [retriever.py](../app/rag/bm25_retriever.py)
 
 ```python
 @dataclass

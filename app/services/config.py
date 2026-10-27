@@ -12,6 +12,7 @@ class Settings:
     # LLM SiliconFlow
     SILICONFLOW_API_KEY:str = os.getenv("SILICONFLOW_API_KEY","")
     SILICONFLOW_BASE_URL:str = os.getenv("SILICONFLOW_BASE_URL")
+    SILICONFLOW_MODEL:str = os.getenv("EMBEDDING_MODEL")
 
     # 工具密钥
     SERPAPI_API_KEY:str = os.getenv("SERPAPI_API_KEY","")
